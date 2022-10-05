@@ -1,5 +1,9 @@
+// External dependencies
 import React from 'react';
 
-const ProductsPage = () => <div>ProductsPage</div>;
+// Local dependencies
+import Products from '../components/Products';
+
+const ProductsPage = () => <Products />;
 
 export default ProductsPage;
