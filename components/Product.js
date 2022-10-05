@@ -8,16 +8,16 @@ import Title from './styles/Title';
 import formatMoney from '../lib/formatMoney';
 
 export default function Product({ product }) {
+  const { id, name, price, description } = product;
+
   return (
     <ItemStyles>
-      <img
-        src={product?.photo?.image?.publicUrlTransformed}
-        alt={product.name}
-      />
+      <img src={product?.photo?.image?.publicUrlTransformed} alt={name} />
       <Title>
-        <Link href={`/product/${product.id}`}>{product.name}</Link>
+        <Link href={`/product/${id}`}>{name}</Link>
       </Title>
-      <PriceTag>{formatMoney(product.price)}</PriceTag>
+      <PriceTag>{formatMoney(price)}</PriceTag>
+      <p>{description}</p>
     </ItemStyles>
   );
 }
