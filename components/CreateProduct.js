@@ -1,8 +1,13 @@
-// Local dependencies
+// External dependencies
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
+
+// Local dependencies
 import { useForm } from '../lib/useForm';
 import DisplayError from './ErrorMessage';
+import { ALL_PRODUCTS_QUERY } from './Products';
+
+// Styles
 import Form from './styles/Form';
 
 const CREATE_PRODUCT_MUTATION = gql`
@@ -37,6 +42,7 @@ const CreateProduct = () => {
     CREATE_PRODUCT_MUTATION,
     {
       variables: values,
+      refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
     }
   );
 
