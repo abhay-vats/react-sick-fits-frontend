@@ -1,6 +1,7 @@
 // External dependencies
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
+import Router from 'next/router';
 
 // Local dependencies
 import { useForm } from '../lib/useForm';
@@ -51,8 +52,9 @@ const CreateProduct = () => {
       <Form
         onSubmit={async (e) => {
           e.preventDefault();
-          await createProduct();
+          const res = await createProduct();
           clearForm();
+          Router.push({ pathname: `/product/${res?.data?.createProduct?.id}` });
         }}
       >
         <DisplayError error={error} />
