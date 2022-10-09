@@ -11,10 +11,15 @@ const DELETE_PRODUCT_MUTATION = gql`
   }
 `;
 
+// Helpers
+const update = (cache, { data: { deleteProduct } }) =>
+  cache.evict(cache.identify(deleteProduct));
+
 // Component
 const DeleteProduct = ({ id, children }) => {
   const [deleteProduct, { loading }] = useMutation(DELETE_PRODUCT_MUTATION, {
     variables: { id },
+    update,
   });
 
   return (
