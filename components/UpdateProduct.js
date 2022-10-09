@@ -1,5 +1,6 @@
 // External dependencies
-import { gql, useMutation, useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
+import gql from 'graphql-tag';
 
 // Local dependencies
 import DisplayError from './ErrorMessage';
