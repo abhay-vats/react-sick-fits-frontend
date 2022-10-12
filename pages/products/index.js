@@ -1,15 +1,15 @@
 // External dependencies
 import React from 'react';
-import Pagination from '../components/Pagination';
 
 // Local dependencies
-import Products from '../components/Products';
+import Products from '../../components/Products';
+import Pagination from '../../components/Pagination';
 
 const ProductsPage = () => (
   <>
-    <Pagination page={1} />
+    <Pagination />
     <Products />
-    <Pagination page={1} />
+    <Pagination />
   </>
 );
 
